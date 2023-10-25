@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Grandiflora+One&display=swap");
+
 *,
 *::after,
 *::before {
@@ -6,10 +8,18 @@
   margin: 0;
 }
 
-/* :root {
-  --primary-dark: ;
-  --primary-light: ;
-} */
+*::selection {
+  background: var(--secondary-green);
+  color: var(--primary-light);
+}
+:root {
+  --primary-dark: #262626;
+  --primary-light: #f2f4f7;
+  --primary-grey: #8b93a2;
+  --secondary-grey: #58606b;
+  --primary-green: #17cda3;
+  --secondary-green: #00b993;
+}
 
 html {
   height: 100%;
@@ -20,6 +30,195 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* background-color: val(--primary-light); */
   text-align: center;
+  background-color: var(--primary-light);
+  min-width: 250px;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 2em;
+  gap: 2em;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2em;
+  flex-wrap: wrap;
+  user-select: none;
+}
+
+.logo-img {
+  height: 4rem;
+  width: auto;
+}
+
+.logo-text {
+  font-family: "Grandiflora One", cursive, serif;
+  font-size: 2em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.incognito {
+  color: var(--primary-grey);
+}
+
+.accent {
+  color: var(--primary-green);
+}
+
+/* Navbar */
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75em;
+}
+
+nav > a,
+nav > p {
+  text-decoration: none;
+  font-family: "Grandiflora One", cursive, serif;
+  font-weight: bold;
+  font-size: 1em;
+  letter-spacing: 3px;
+  color: var(--secondary-grey);
+}
+
+nav > p {
+  user-select: none;
+}
+
+nav > a:hover {
+  text-decoration: underline var(--primary-green) wavy;
+}
+
+/* Main */
+
+main {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 3em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.key-feature {
+  color: var(--secondary-green);
+  font-family: "Grandiflora One", cursive, serif;
+  font-weight: bold;
+  font-size: 1.5em;
+  letter-spacing: 3px;
+}
+
+.features-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 65%;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  padding: 1em;
+  user-select: none;
+  gap: 2em;
+  width: 100%;
+  border-bottom: 2px dashed var(--primary-grey);
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  min-height: 250px;
+  height: fit-content;
+  gap: 1em;
+  color: var(--primary-dark);
+}
+
+.feature-desc {
+  line-height: 20px;
+}
+
+.feature-icon {
+  height: 50px;
+  border-left: var(--secondary-green) 2px dashed;
+  object-fit: contain;
+}
+
+.keyword {
+  text-decoration: underline var(--secondary-green) wavy;
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary-grey);
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em;
+  font-family: "Grandiflora One", cursive, serif;
+  font-size: 20px;
+  font-weight: bold;
+  gap: 0.4em;
+  letter-spacing: 2px;
+  color: var(--primary-light);
+  letter-spacing: 2px;
+}
+
+.fa-github {
+  font-size: 22px;
+  color: var(--primary-light);
+  transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+  transform: rotate(360deg) scale(1.2);
+}
+
+/* Media queries */
+
+@media (max-width: 650px) {
+  nav > a {
+    font-size: 1.25em;
+  }
+
+  header {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  nav > a {
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 450px) {
+  .logo-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .logo-text {
+    justify-content: center;
+    align-items: center;
+  }
 }
