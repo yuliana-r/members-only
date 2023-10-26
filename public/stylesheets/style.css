@@ -115,6 +115,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1em;
 }
 
 .key-feature {
@@ -133,7 +134,7 @@ main {
   width: 65%;
   flex-wrap: wrap;
   border-radius: 5px;
-  padding: 1em;
+  padding: 2.5em;
   user-select: none;
   gap: 2em;
   width: 100%;
@@ -144,24 +145,33 @@ main {
   display: flex;
   flex-direction: column;
   width: 250px;
-  min-height: 250px;
+  min-height: 200px;
   height: fit-content;
   gap: 1em;
   color: var(--primary-dark);
 }
 
 .feature-desc {
-  line-height: 20px;
+  line-height: 23px;
+  font-size: 1.1em;
 }
 
 .feature-icon {
   height: 50px;
-  border-left: var(--secondary-green) 2px dashed;
+  border-left: var(--primary-green) 2px solid;
   object-fit: contain;
 }
 
 .keyword {
   text-decoration: underline var(--secondary-green) wavy;
+}
+
+.info {
+  font-family: "Grandiflora One", cursive, serif;
+  color: var(--secondary-grey);
+  font-weight: bold;
+  font-size: 1.5em;
+  letter-spacing: 2px;
 }
 
 /* Footer */
