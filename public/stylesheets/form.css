@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Grandiflora+One&display=swap");
+
+:root {
+  --primary-dark: #262626;
+  --primary-light: #f2f4f7;
+  --primary-grey: #8b93a2;
+  --secondary-grey: #58606b;
+  --primary-green: #17cda3;
+  --secondary-green: #00b993;
+}
+
+/* Forms */
+
+form {
+  width: 100%;
+  margin: 1.5em 0;
+}
+
+label,
+input {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--primary-dark);
+  width: 100%;
+  letter-spacing: 1px;
+  font-size: 1em;
+}
+
+input {
+  height: 2.25rem;
+  margin: 0.5em 0;
+  padding: 0.25em;
+  border: 1px solid var(--primary-grey);
+  border-radius: 5px;
+}
+
+.form-container {
+  min-width: 270px;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.submit-button {
+  background-color: var(--primary-grey);
+  color: var(--primary-light);
+  border: 1px solid var(--secondary-grey);
+  width: 100%;
+  padding: 0.25em 0;
+  border-radius: 5px;
+  font-family: "Grandiflora One", cursive, serif;
+  font-size: 1.25em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0.5em 0;
+}
+
+.submit-button:hover {
+  background-color: var(--secondary-green);
+  color: var(--primary-light);
+  cursor: grab;
+}
+
+ul {
+  list-style-type: circle;
+  width: 20%;
+  min-width: 250px;
+}
+
+ul > li {
+  text-decoration: underline var(--primary-green) wavy 1px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  color: var(--primary-dark);
+  margin-bottom: 0.75em;
+}

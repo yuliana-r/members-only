@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./templates/head'); %>
+  </head>
+
+  <body>
+    <%- include('./templates/header'); %>
+    <main>
+      <div class="form-container">
+        <h1>SIGN UP</h1>
+        <form action="/sign-up" method="POST">
+          <div class="form-inputs">
+            <div class="input-container">
+              <label for="firstname"
+                >First name<span class="accent">*</span></label
+              >
+              <input
+                id="firstname"
+                name="firstname"
+                placeholder="Secret"
+                type="text"
+                value="<%= locals.errors && firstName %>"
+                required
+              />
+            </div>
+            <div class="input-container">
+              <label for="lastname"
+                >Last name<span class="accent">*</span></label
+              >
+              <input
+                id="lastname"
+                name="lastname"
+                placeholder="Squirrel"
+                type="text"
+                value="<%= locals.errors && lastName %>"
+                required
+              />
+            </div>
+            <div class="input-container">
+              <label for="username"
+                >Username<span class="accent">*</span></label
+              >
+              <input
+                id="username"
+                name="username"
+                placeholder="codeCracker007"
+                type="text"
+                value="<%= locals.errors && username %>"
+                required
+              />
+            </div>
+            <div class="input-container">
+              <label for="password"
+                >Password<span class="accent">*</span></label
+              >
+              <input
+                id="password"
+                name="password"
+                type="password"
+                minlength="8"
+                maxlength="100"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Must be at least 8 characters long, contain at least one  number and one uppercase letter"
+                autocomplete="off"
+                required
+              />
+            </div>
+            <div class="input-container">
+              <label for="confirmPassword"
+                >Confirm password<span class="accent">*</span></label
+              >
+              <input
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                minlength="8"
+                maxlength="100"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Must be at least 8 characters long, contain at least one  number and one uppercase letter"
+                autocomplete="off"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="submit-button">SUBMIT</button>
+        </form>
+      </div>
+      <% if (locals.errors) { %>
+      <ul>
+        <% for (let error of errors) { %>
+        <li><%= error.msg %></li>
+        <% } %>
+      </ul>
+      <% } %>
+    </main>
+    <footer><%- include('./templates/footer') %></footer>
+  </body>
+</html>
