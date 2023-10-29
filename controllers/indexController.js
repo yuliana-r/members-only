@@ -2,6 +2,7 @@ const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
+let passport = require("passport");
 
 exports.index = asyncHandler(async (req, res, next) => {
   //show different header for logged in users/visitors
@@ -98,3 +99,13 @@ exports.sign_up_form_post = [
     }
   }),
 ];
+
+exports.log_in_form_get = asyncHandler(async (req, res, next) => {
+  res.render("log-in-form", { title: "log in" });
+});
+
+exports.log_in_form_post = passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/log-in",
+  failureMessage: true,
+});

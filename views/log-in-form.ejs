@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./templates/head'); %>
+  </head>
+
+  <body>
+    <%- include('./templates/header'); %>
+    <main>
+      <div class="form-container">
+        <h1>LOG IN</h1>
+        <form action="/log-in" method="POST">
+          <div class="form-inputs">
+            <div class="input-container">
+              <label for="username">Username</label>
+              <input
+                id="username"
+                name="username"
+                placeholder="codeCracker007"
+                type="text"
+                autocomplete="off"
+                required
+              />
+            </div>
+            <div class="input-container">
+              <label for="password">Password</label>
+              <input
+                id="password"
+                name="password"
+                autocomplete="off"
+                type="password"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="submit-button">LOG IN</button>
+        </form>
+      </div>
+    </main>
+    <footer><%- include('./templates/footer') %></footer>
+  </body>
+</html>

@@ -7,13 +7,14 @@
   <body>
     <%- include('./templates/header'); %>
     <main>
+      <% if (!currentUser) {%>
       <div class="features-container">
         <div class="feature">
           <img src="/images/eye.png" alt="eye icon" class="feature-icon" />
           <p class="key-feature">public visibility</p>
           <p class="feature-desc">
             All messages are accessible to
-            <span class="keyword">all</span> users.
+            <span class="keyword">all</span> registered users.
           </p>
         </div>
         <div class="feature">
@@ -41,9 +42,15 @@
           </p>
         </div>
       </div>
-      <div>
-        <p class="info">There are currently 0123456789 messages.</p>
-      </div>
+      <p class="info">Please log in to view and compose messages.</p>
+      <% } else { %>
+      <p class="info">
+        Welcome back <span class="keyword"><%= currentUser.username %></span>
+      </p>
+      <button class="submit-button">NEW MESSAGE</button>
+      <p class="info">There are currently 0123456789 messages.</p>
+      <p class="info">(messages go here)</p>
+      <% } %>
     </main>
 
     <footer><%- include('./templates/footer') %></footer>

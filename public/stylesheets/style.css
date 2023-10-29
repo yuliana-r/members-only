@@ -134,6 +134,11 @@ h2 {
   color: var(--secondary-grey);
 }
 
+h1 {
+  border-left: var(--primary-green) 2px solid;
+  width: 100%;
+}
+
 .key-feature {
   color: var(--secondary-green);
   font-family: "Grandiflora One", cursive, serif;
