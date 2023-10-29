@@ -36,6 +36,11 @@
 
           <button type="submit" class="submit-button">LOG IN</button>
         </form>
+        <% if (messages.error) { %>
+        <ul>
+          <li><%= messages.error %></li>
+        </ul>
+        <% } %>
       </div>
     </main>
     <footer><%- include('./templates/footer') %></footer>
