@@ -2,9 +2,45 @@
 
 ## Introduction
 
+This project is an exclusive clubhouse where visitors can register, become members and leave messages. Visitors and users can only view the message contents, while exclusive members can leave messages and view messages' dates and authors.
+
+This project primarily demonstrates user of NodeJS/ExpressJS, MongoDB (& mongoose), EJS, passportJS and MVC architecture.
+
+**Features include:**
+
+_Visitors:_
+
+- View messages title and content
+- Sign up
+
+_Users:_
+
+- Log in
+- Become an exclusive member by entering secret password
+- Delete their account
+
+_Members:_
+
+- View messages title, content, author and date
+- Add message
+
+_Admins:_
+
+- Delete messages
+
 ## Preview
 
-<!-- [![Members Only](./public/images/demo.png)](https://members-only.onrender.com/) -->
+> HOME page
+> [![Members Only](./public/images/home.png)]()
+
+> USER view
+> [![Members Only](./public/images/user-view.png)]()
+
+> MEMBER view
+> [![Members Only](./public/images/member-view.png)]()
+
+> ADMIN view
+> [![Members Only](./public/images/admin-view.png)]()
 
 ## Media & assets credits:
 
