@@ -1,7 +1,5 @@
 let express = require("express");
 let indexRouter = express.Router();
-// const User = require("../models/user");
-// const bcrypt = require("bcryptjs");
 
 const indexController = require("../controllers/indexController");
 
@@ -29,4 +27,8 @@ indexRouter.get("/log-out", (req, res, next) => {
     res.redirect("/");
   });
 });
+
+/* POST request to submit becoming a member form */
+indexRouter.post("/join", indexController.join_form_post);
+
 module.exports = indexRouter;

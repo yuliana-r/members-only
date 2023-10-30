@@ -1,0 +1,37 @@
+<div class="form-container">
+  <h1>JOIN</h1>
+  <div class="info-small">
+    <p class="accent">
+      Become a member to reveal authors and compose messages.
+    </p>
+    Hint: "To enter our club, you must be discreet,<br />
+    Where secrets are kept and members meet.<br />
+    The key to our world, a word to say, <br />It's "<span class="keyword"
+      >incognito</span
+    >" in a different way.<br />
+    Spell it backward, what do you see? <br />The answer is the word, come join
+    us, be free!"
+  </div>
+  <form action="/join" method="POST">
+    <div class="form-inputs">
+      <div class="input-container">
+        <label for="secret">Password</label>
+        <input
+          id="secret"
+          name="secret"
+          autocomplete="off"
+          type="password"
+          required
+        />
+      </div>
+    </div>
+    <button type="submit" class="submit-button">JOIN</button>
+  </form>
+  <% if (locals.errors) { %>
+  <ul>
+    <% for (let error of locals.errors) { %>
+    <li><%= error.msg %></li>
+    <% } %>
+  </ul>
+  <% } %>
+</div>

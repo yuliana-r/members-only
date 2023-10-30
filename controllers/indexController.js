@@ -94,7 +94,7 @@ exports.sign_up_form_post = [
         });
 
         await user.save();
-        res.redirect("/");
+        res.redirect("/log-in");
       });
     }
   }),
@@ -109,3 +109,32 @@ exports.log_in_form_post = passport.authenticate("local", {
   failureRedirect: "/log-in",
   failureFlash: true,
 });
+
+exports.join_form_post = [
+  body("secret")
+    .trim()
+    .custom(async (password, { req }) => {
+      if (password === process.env.MEMBER_PASSWORD) {
+        req.user.isMember = true;
+      } else if (password === process.env.ADMIN_PASSWORD) {
+        req.user.isMember = true;
+        req.user.isAdmin = true;
+      } else {
+        throw new Error("Incorrect password");
+      }
+    }),
+
+  asyncHandler(async (req, res, next) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      res.render("index", {
+        title: "join",
+        errors: errors.array(),
+      });
+    } else {
+      await req.user.save();
+      res.redirect("/");
+    }
+  }),
+];

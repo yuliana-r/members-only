@@ -15,7 +15,12 @@
   </div>
 
   <nav>
-    <% if (currentUser) {%>
+    <% if (currentUser) {%> <% if (currentUser.isMember){ %>
+    <a href="/new">NEW MESSAGE</a>
+    <p class="accent">|</p>
+    <% } %>
+    <a href="/">SETTINGS</a>
+    <p class="accent">|</p>
     <a href="/log-out">LOG OUT</a>
     <% } else { %>
     <a href="/log-in">LOG IN</a>

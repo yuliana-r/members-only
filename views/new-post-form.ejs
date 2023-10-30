@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./templates/head'); %>
+  </head>
+
+  <body>
+    <%- include('./templates/header'); %>
+    <main>
+      <% if (currentUser.isMember) { %>
+      <div class="form-container">
+        <h1>NEW MESSAGE</h1>
+        <form action="/new" method="POST">
+          <div class="form-inputs">
+            <div class="input-container">
+              <label for="title">Title<span class="accent">*</span></label>
+              <input
+                id="title"
+                name="title"
+                placeholder="Top-secret communication"
+                value="<%= locals.errors && messageTitle %>"
+                type="text"
+                autocomplete="off"
+                required
+              />
+            </div>
+            <div class="input-container">
+              <label for="message">Message<span class="accent">*</span></label>
+              <textarea
+                name="message"
+                id="message"
+                cols="70"
+                rows="50"
+                maxlength="250"
+                minlength="1"
+                placeholder="For your eyes only, I must share..."
+                required
+              >
+<%= locals.errors ? message : '' %></textarea
+              >
+            </div>
+          </div>
+
+          <button type="submit" class="submit-button">SUBMIT</button>
+        </form>
+        <% if (locals.errors) { %>
+        <ul>
+          <% for (let error of locals.errors) { %>
+          <li><%= error.msg %></li>
+          <% } %>
+        </ul>
+        <% } %>
+      </div>
+      <% } else { %>
+      <p>Nothing to see here!</p>
+      <% } %>
+    </main>
+    <footer><%- include('./templates/footer') %></footer>
+  </body>
+</html>
