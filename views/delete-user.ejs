@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./templates/head'); %>
+  </head>
+
+  <body>
+    <%- include('./templates/header'); %>
+    <main>
+      <form method="POST" action="">
+        <p class="info">Delete account?</p>
+        <p class="info-small">
+          This will remove all messages associated with this account.
+        </p>
+        <div class="input-container">
+          <input
+            id="userid"
+            type="hidden"
+            name="userid"
+            required="true"
+            value="<%= user._id%>"
+          />
+        </div>
+        <button type="submit" class="submit-button">DELETE</button>
+      </form>
+    </main>
+    <footer><%- include('./templates/footer') %></footer>
+  </body>
+</html>

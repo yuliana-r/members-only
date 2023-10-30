@@ -13,6 +13,7 @@ const User = require("./models/user");
 const bcrypt = require("bcryptjs");
 let indexRouter = require("./routes/index");
 let postRouter = require("./routes/post");
+let userRouter = require("./routes/user");
 
 let app = express();
 
@@ -83,6 +84,7 @@ app.use((req, res, next) => {
 
 app.use("/", indexRouter);
 app.use("/", postRouter);
+app.use("/", userRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
