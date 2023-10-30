@@ -1,12 +1,25 @@
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 const User = require("../models/user");
+const Post = require("../models/post");
 const bcrypt = require("bcryptjs");
-let passport = require("passport");
+const passport = require("passport");
+const datefns = require("date-fns/format");
 
 exports.index = asyncHandler(async (req, res, next) => {
   //show different header for logged in users/visitors
-  res.render("index", { title: "home" });
+  const postCount = await Post.countDocuments({}).exec();
+  const allPosts = await Post.find({}, "title text author timestamp")
+    .sort({ timestamp: -1 })
+    .populate("author")
+    .exec();
+
+  res.render("index", {
+    title: "home",
+    all_posts: allPosts,
+    post_count: postCount,
+    datefns: datefns,
+  });
 });
 
 exports.sign_up_form_get = asyncHandler(async (req, res, next) => {
@@ -125,11 +138,18 @@ exports.join_form_post = [
     }),
 
   asyncHandler(async (req, res, next) => {
+    const postCount = await Post.countDocuments({}).exec();
+    const allPosts = await Post.find({}, "title text author timestamp")
+      .sort({ timestamp: 1 })
+      .populate("author")
+      .exec();
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
       res.render("index", {
         title: "join",
+        all_posts: allPosts,
+        post_count: postCount,
         errors: errors.array(),
       });
     } else {

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Grandiflora+One&display=swap");
 @import url("form.css");
+@import url("posts.css");
 
 *,
 *::after,
@@ -225,7 +226,7 @@ footer {
 
 .fa-github {
   font-size: 22px;
-  color: var(--primary-green);
+  color: var(--secondary-green);
   transition: transform 0.3s ease-in-out;
 }
 
@@ -247,6 +248,10 @@ footer {
 
   nav > a {
     font-size: 0.85em;
+  }
+
+  .message-header {
+    justify-content: center;
   }
 }
 

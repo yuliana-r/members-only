@@ -18,6 +18,8 @@
                 id="title"
                 name="title"
                 placeholder="Top-secret communication"
+                minlength="2"
+                maxlength="30"
                 value="<%= locals.errors && messageTitle %>"
                 type="text"
                 autocomplete="off"
@@ -33,11 +35,9 @@
                 rows="50"
                 maxlength="250"
                 minlength="1"
-                placeholder="For your eyes only, I must share..."
+                placeholder="For your eyes only, I must share...""
                 required
-              >
-<%= locals.errors ? message : '' %></textarea
-              >
+              ><%= locals.errors && message %></textarea>
             </div>
           </div>
 

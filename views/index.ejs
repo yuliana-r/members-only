@@ -9,25 +9,37 @@
     <main>
       <!-- Visitors view -->
       <% if (!currentUser) { %> <%- include('./templates/features'); %>
-      <p class="info">Display messages with hidden author!</p>
+      <p class="info">
+        There <%= post_count === 1 ? 'is' : 'are' %> currently <%= post_count %>
+        <%= post_count === 1 ? 'message' : 'messages' %>.
+      </p>
+      <p class="info">
+        Become a member to reveal authors and compose messages.
+      </p>
+
+      <% } else { %> <% if (!currentUser.isMember) { %>
       <!-- Registered users view -->
-      <% } else if (!currentUser.isMember) { %> <%-
-      include('./templates/join-form'); %>
-      <p class="info">There are currently 0123456789 messages.</p>
-      <p class="info">(messages go here, no author or date)</p>
-      <% } else if(currentUser.isMember) { %>
+      <%- include('./templates/join-form'); %>
+      <p class="info">
+        There <%= post_count === 1 ? 'is' : 'are' %> currently <%= post_count %>
+        <%= post_count === 1 ? 'message' : 'messages' %>.
+      </p>
+      <% } else { %>
       <!-- Members view -->
       <p class="info">
-        Welcome back <span class="accent"><%= currentUser.firstName %></span>
+        Welcome back,
+        <span class="accent"><%= currentUser.firstName %></span>
       </p>
-      <p class="info">There are currently 0123456789 messages.</p>
-      <p class="info">(messages go here, with author and date)</p>
-      <!-- Members view -->
-      <% } else if (currentUser.isAdmin) { %>
       <p class="info">
-        (messages go here, with author, date and delete option)
+        There <%= post_count === 1 ? 'is' : 'are' %> currently <%= post_count %>
+        <%= post_count === 1 ? 'message' : 'messages' %>.
       </p>
-      <% } %>
+      <% } %> <% if (currentUser.isAdmin) { %>
+      <!-- Admin view -->
+      <p class="info">
+        (messages go here, with author, date, and delete option)
+      </p>
+      <% } %> <% } %> <%- include('./all-posts') %>
     </main>
 
     <footer><%- include('./templates/footer') %></footer>
