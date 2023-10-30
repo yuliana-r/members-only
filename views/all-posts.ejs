@@ -1,12 +1,12 @@
 <div class="messages-container">
   <% if (all_posts.length > 0) { %> <% all_posts.forEach(function(post) { %>
-  <div class="message-item tri-right btm-right">
+  <div class="message-item">
     <% if (currentUser && (currentUser.isMember || currentUser.isAdmin)) { %>
     <div class="message-header">
       <p>
         <%= post.author.username %>
-        <span class="admin"
-          ><%= post.author.isAdmin ? `(administrator)` : '' %></span
+        <sup class="admin"
+          ><%= post.author.isAdmin ? `administrator` : '' %></sup
         >
       </p>
       <p><%= datefns(post.timestamp, "EEE, dd MMM yyyy, HH:mm") %></p>
@@ -18,7 +18,7 @@
     </div>
     <% if (currentUser && currentUser.isAdmin) { %> <% if (currentUser.isAdmin)
     { %>
-    <!-- delete option -->
+    <a href="<%= post.url %>/delete"><i class="fa-solid fa-trash-can"></i></a>
     <% } %> <% } %>
   </div>
   <% }); %> <% } %>

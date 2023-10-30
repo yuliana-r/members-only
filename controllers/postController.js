@@ -46,3 +46,20 @@ exports.new_post_form_post = [
     }
   }),
 ];
+
+exports.post_delete_get = asyncHandler(async (req, res, next) => {
+  const post = await Post.findById(req.params.id).exec();
+
+  if (post === null) {
+    const err = new Error("Post not found!");
+    err.status = 404;
+    return next(err);
+  }
+
+  res.render("delete-post", { title: "delete message", post });
+});
+
+exports.post_delete_post = asyncHandler(async (req, res, next) => {
+  await Post.findByIdAndRemove(req.body.postid).exec();
+  res.redirect("/");
+});

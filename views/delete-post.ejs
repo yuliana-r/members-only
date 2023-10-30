@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./templates/head'); %>
+  </head>
+
+  <body>
+    <%- include('./templates/header'); %>
+    <main>
+      <form method="POST" action="">
+        <p class="info">Delete message?</p>
+        <div class="input-container">
+          <input
+            id="postid"
+            type="hidden"
+            name="postid"
+            required="true"
+            value="<%=post._id%>"
+          />
+        </div>
+        <button type="submit" class="submit-button">DELETE</button>
+      </form>
+    </main>
+    <footer><%- include('./templates/footer') %></footer>
+  </body>
+</html>

@@ -34,12 +34,9 @@
         There <%= post_count === 1 ? 'is' : 'are' %> currently <%= post_count %>
         <%= post_count === 1 ? 'message' : 'messages' %>.
       </p>
-      <% } %> <% if (currentUser.isAdmin) { %>
+      <% } %>
       <!-- Admin view -->
-      <p class="info">
-        (messages go here, with author, date, and delete option)
-      </p>
-      <% } %> <% } %> <%- include('./all-posts') %>
+      <% } %> <%- include('./all-posts') %>
     </main>
 
     <footer><%- include('./templates/footer') %></footer>
