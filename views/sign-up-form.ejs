@@ -9,12 +9,17 @@
     <main>
       <div class="form-container">
         <h1>SIGN UP</h1>
+        <p class="info-small">
+          Fields marked with <span class="accent">*</span> are required
+        </p>
         <form action="/sign-up" method="POST">
           <div class="form-inputs">
             <div class="input-container">
               <label for="firstname"
                 >First name<span class="accent">*</span></label
               >
+              <li>must be between 2 and 30 characters long</li>
+              <li>can only contain letters</li>
               <input
                 id="firstname"
                 name="firstname"
@@ -28,6 +33,8 @@
               <label for="lastname"
                 >Last name<span class="accent">*</span></label
               >
+              <li>must be between 2 and 30 characters long</li>
+              <li>can only contain letters</li>
               <input
                 id="lastname"
                 name="lastname"
@@ -41,6 +48,8 @@
               <label for="username"
                 >Username<span class="accent">*</span></label
               >
+              <li>must be between 8 and 20 characters long</li>
+              <li>can only contain letters and numbers</li>
               <input
                 id="username"
                 name="username"
@@ -54,6 +63,9 @@
               <label for="password"
                 >Password<span class="accent">*</span></label
               >
+              <li>must be at least 8 characters long</li>
+              <li>must contain at least 1 number</li>
+              <li>must contain at least 1 uppercase letter</li>
               <input
                 id="password"
                 name="password"

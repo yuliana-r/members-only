@@ -140,7 +140,7 @@ exports.join_form_post = [
   asyncHandler(async (req, res, next) => {
     const postCount = await Post.countDocuments({}).exec();
     const allPosts = await Post.find({}, "title text author timestamp")
-      .sort({ timestamp: 1 })
+      .sort({ timestamp: -1 })
       .populate("author")
       .exec();
     const errors = validationResult(req);

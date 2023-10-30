@@ -10,17 +10,11 @@ exports.new_post_form_post = [
   body("title")
     .trim()
     .isLength({ min: 2, max: 30 })
-    .withMessage("Title must be between 2 and 30 characters long")
-    .not()
-    .isEmpty()
-    .withMessage("Title is required"),
+    .withMessage("Title must be between 2 and 30 characters long"),
   body("message")
     .trim()
     .isLength({ min: 2, max: 250 })
-    .withMessage("Message must be between 2 and 250 characters long")
-    .not()
-    .isEmpty()
-    .withMessage("Message is required"),
+    .withMessage("Message must be between 2 and 250 characters long"),
 
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);

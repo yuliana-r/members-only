@@ -187,7 +187,8 @@ h1 {
 }
 
 .keyword {
-  text-decoration: underline var(--secondary-green) wavy;
+  color: var(--secondary-green);
+  font-style: italic;
 }
 
 .info {
