@@ -119,7 +119,7 @@ nav > a:hover {
 
 main {
   font-family: Arial, Helvetica, sans-serif;
-  padding: 3em;
+  padding: 1em 3em;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -146,22 +146,23 @@ h1 {
   color: var(--secondary-green);
   font-family: "Grandiflora One", cursive, serif;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.3em;
   letter-spacing: 3px;
 }
 
 .features-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  width: 65%;
+  width: 50%;
   flex-wrap: wrap;
   border-radius: 5px;
-  padding: 2.5em;
+  padding: 1em 0;
   user-select: none;
-  gap: 2em;
+  gap: 1em;
   width: 100%;
+  margin-bottom: 0.25em;
   border-bottom: 2px dashed var(--primary-grey);
 }
 
@@ -171,17 +172,18 @@ h1 {
   width: 250px;
   min-height: 200px;
   height: fit-content;
-  gap: 1em;
+  gap: 0.5em;
+  padding: 0.5em;
   color: var(--primary-dark);
 }
 
 .feature-desc {
   line-height: 23px;
-  font-size: 1.1em;
+  font-size: 1.05em;
 }
 
 .feature-icon {
-  height: 50px;
+  height: 45px;
   border-left: var(--primary-green) 2px solid;
   object-fit: contain;
 }
