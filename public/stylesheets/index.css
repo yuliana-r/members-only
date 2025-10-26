@@ -1,3 +1,9 @@
 body {
   color: rebeccapurple;
+  background-color: #f1f1f1;
+}
+
+.logo-img {
+  height: 4rem;
+  width: auto;
 }
