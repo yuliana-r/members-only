@@ -1,6 +1,7 @@
 const { body, validationResult } = require("express-validator");
 const db = require("../db/queries/user_queries");
 const bcrypt = require("bcryptjs");
+const passport = require("passport");
 
 function handleServerError(res, error, message = "Internal Server Error") {
   //console.error(message, error);
@@ -112,3 +113,10 @@ exports.showLogInForm = async (req, res) => {
     title: "log in",
   });
 };
+
+// POST /log-in
+exports.submitLogInForm = passport.authenticate("local", {
+  successRedirect: "/",
+  failureFlash: true,
+  failureRedirect: "/log-in",
+});

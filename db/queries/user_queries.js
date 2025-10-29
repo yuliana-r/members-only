@@ -7,6 +7,13 @@ async function getUsername(username) {
   return rows[0];
 }
 
+async function getUserById(id) {
+  const { rows } = await pool.query("SELECT * FROM users WHERE user_id = $1", [
+    id,
+  ]);
+  return rows[0];
+}
+
 async function insertUser(
   first_name,
   last_name,
@@ -24,4 +31,5 @@ async function insertUser(
 module.exports = {
   getUsername,
   insertUser,
+  getUserById,
 };

@@ -6,6 +6,16 @@
   <%- include("./partials/header") %>
   <p>some home page text!</p>
 
+  <% if (currentUser) { %>
+  <a href="">LOG OUT</a>
+  <a href="">NEW MESSAGE</a>
+  <% } else { %>
+  <nav>
+    <a href="/log-in">LOG IN</a>
+    <a href="sign-up">SIGN UP</a>
+  </nav>
+  <% } %>
+
   <%- include("./partials/footer") %>
 </body>
 
