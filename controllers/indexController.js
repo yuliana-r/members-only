@@ -100,7 +100,7 @@ exports.submitSignupForm = [
         false,
         false,
       );
-      res.redirect("/");
+      res.redirect("/log-in");
     } catch (err) {
       next(err);
     }
@@ -130,3 +130,35 @@ exports.logUserOut = async (req, res) => {
     res.redirect("/");
   });
 };
+
+// POST /join
+exports.submitJoinForm = [
+  body("secret")
+    .trim()
+    .custom((password, { req }) => {
+      if (password !== process.env.MEMBER_PASSWORD) {
+        throw new Error("Incorrect password!");
+      }
+      return true;
+    }),
+
+  async (req, res, next) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.render("index", {
+        title: "join",
+        errors: errors.array(),
+        currentUser: req.user,
+      });
+    }
+
+    try {
+      await db.updateUserMembership(req.user.user_id, true);
+      req.user.isMember = true;
+      res.redirect("/");
+    } catch (err) {
+      next(err);
+    }
+  },
+];

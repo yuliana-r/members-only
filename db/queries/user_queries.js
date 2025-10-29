@@ -28,8 +28,17 @@ async function insertUser(
     [first_name, last_name, username, password, isMember, isAdmin],
   );
 }
+
+async function updateUserMembership(user_id, isMember) {
+  await pool.query(`UPDATE users SET isMember = $1 WHERE user_id = $2`, [
+    isMember,
+    user_id,
+  ]);
+}
+
 module.exports = {
   getUsername,
   insertUser,
   getUserById,
+  updateUserMembership,
 };

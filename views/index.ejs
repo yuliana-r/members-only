@@ -6,8 +6,29 @@
   <%- include("./partials/header") %>
   <p>some home page text!</p>
 
+  <% if (currentUser) { %>
+  <% if (!currentUser.ismember) { %>
+  <p>Become a member to leave a message!</p>
+  <p>Some riddle for members to guess the password!</p>
 
+  <form action="/join" method="POST">
+    <label for="secret">Password</label>
+    <input type="password" id="secret" name="secret" required>
+    <button type="submit">JOIN</button>
+  </form>
+  <% } else { %>
+  <p>Welcome <%= currentUser.username %> you are now a member!!</p>
+  <% } %>
+  <% } %>
+  <% if (locals.errors) { %>
+  <ul>
+    <% for (let error of locals.errors) { %>
+    <li><%= error.msg %></li>
+    <% } %>
+  </ul>
+  <% } %>
   <%- include("./partials/footer") %>
+
 </body>
 
 </html>
