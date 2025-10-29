@@ -3,7 +3,7 @@ const db = require("../db/queries/user_queries");
 const bcrypt = require("bcryptjs");
 
 function handleServerError(res, error, message = "Internal Server Error") {
-  console.error(message, error);
+  //console.error(message, error);
   res.status(500).send(message);
 }
 
@@ -79,7 +79,7 @@ exports.submitSignupForm = [
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      console.log("Validation failed:", errors.array());
+      //console.log("Validation failed:", errors.array());
       return res.render("sign_up_form", {
         title: "Sign up",
         firstname,

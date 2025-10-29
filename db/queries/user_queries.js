@@ -4,7 +4,6 @@ async function getUsername(username) {
   const { rows } = await pool.query("SELECT * FROM users WHERE username = $1", [
     username,
   ]);
-  console.log(rows[0]);
   return rows[0];
 }
 
