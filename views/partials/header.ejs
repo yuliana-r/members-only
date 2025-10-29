@@ -2,4 +2,14 @@
   <img src="/images/logo.png" class="logo-img" alt="incognito and two message bubbles icon">
   <p>incatnito</p>
   <p>members only</p>
+
+  <nav>
+    <% if (currentUser) { %>
+    <a href="/log-out">LOG OUT</a>
+    <a href="">NEW MESSAGE</a>
+    <% } else { %>
+    <a href="/log-in">LOG IN</a>
+    <a href="sign-up">SIGN UP</a>
+    <% } %>
+  </nav>
 </header>

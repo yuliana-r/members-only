@@ -120,3 +120,13 @@ exports.submitLogInForm = passport.authenticate("local", {
   failureFlash: true,
   failureRedirect: "/log-in",
 });
+
+// GET /log-out
+exports.logUserOut = async (req, res) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+};
