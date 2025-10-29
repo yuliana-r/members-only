@@ -5,5 +5,6 @@ const indexController = require("../controllers/indexController");
 indexRouter.get("/", indexController.index);
 indexRouter.get("/sign-up", indexController.showSignupForm);
 indexRouter.post("/sign-up", indexController.submitSignupForm);
+indexRouter.get("/log-in", indexController.showLogInForm);
 
 module.exports = indexRouter;

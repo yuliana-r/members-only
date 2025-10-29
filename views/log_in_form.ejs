@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("./partials/head") %>
+
+<body>
+  <%- include("./partials/header") %>
+
+  <h1>LOG IN</h1>
+  <form action="/log-in" method="POST">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" placeholder="codeCracker007" required>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">LOG IN</button>
+  </form>
+
+  <%- include("./partials/footer") %>
+</body>
+
+</html>

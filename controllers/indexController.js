@@ -105,3 +105,10 @@ exports.submitSignupForm = [
     }
   },
 ];
+
+// GET /log-in
+exports.showLogInForm = async (req, res) => {
+  res.render("log_in_form", {
+    title: "log in",
+  });
+};
