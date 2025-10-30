@@ -1,0 +1,42 @@
+const { body, validationResult } = require("express-validator");
+const db = require("../db/queries/post_queries");
+
+//GET /posts/new
+exports.showNewPostForm = async (req, res) => {
+  res.render("new_post_form", {
+    title: "new post",
+  });
+};
+
+//POST /posts/new
+exports.submitNewPostForm = [
+  body("title")
+    .trim()
+    .isLength({ min: 2, max: 30 })
+    .withMessage("Title must be between 2 and 30 characters long"),
+  body("message")
+    .trim()
+    .isLength({ min: 2, max: 100 })
+    .withMessage("Message must be between 2 and 100 characters long"),
+
+  async (req, res, next) => {
+    const { title, message } = req.body;
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.render("new_message_form", {
+        title: "new post",
+        postTitle: title,
+        message: message,
+        errors: errors.array(),
+      });
+    }
+
+    try {
+      await db.insertPost(title, message, req.user.user_id);
+      res.redirect("/");
+    } catch (err) {
+      next(err);
+    }
+  },
+];

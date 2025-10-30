@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("./partials/head") %>
+
+<body>
+  <%- include("./partials/header") %>
+  <% if (currentUser && currentUser.is_member) { %>
+  <h1>NEW MESSAGE</h1>
+  <form action="/posts/new" method="POST">
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" placeholder="Top-secret message" minlength="2" maxlength="30" required>
+
+    <label for="message">Message</label>
+    <textarea name="message" id="message" cols="70" rows="50" maxlength="100" placeholder="For your eyes only, I must share..."></textarea>
+    <button type="submit">SUBMIT</button>
+  </form>
+  <% } else { %>
+  <p>Nothing to see here!</p>
+  <% } %>
+  <%- include("./partials/footer") %>
+</body>
+
+</html>

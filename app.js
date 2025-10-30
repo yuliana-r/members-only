@@ -44,7 +44,7 @@ app.use(flash());
 passport.use(
   new LocalStrategy(async (username, password, done) => {
     try {
-      const user = await db.getUsername(username);
+      const user = await db.getUserByUsername(username);
 
       if (!user)
         return done(null, false, {
@@ -83,13 +83,15 @@ app.use(passport.session());
 
 // reference current user
 app.use((req, res, next) => {
-  res.locals.currentUser = req.user;
+  res.locals.currentUser = req.user || null;
   next();
 });
 
 //assign routers to paths
 const indexRouter = require("./routes/index");
+const postRouter = require("./routes/post");
 app.use("/", indexRouter);
+app.use("/posts", postRouter);
 
 // 404 handler
 app.use((req, res, next) => {

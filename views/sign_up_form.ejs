@@ -36,7 +36,7 @@
       <button type="submit">SUBMIT</button>
     </form>
   </div>
-  <% if (locals.errors) { %>
+  <% if (locals.errors && locals.errors.length > 0) { %>
   <ul>
     <% for (let error of errors) { %>
     <li><%= error.msg %></li>

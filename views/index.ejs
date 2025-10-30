@@ -4,10 +4,8 @@
 
 <body>
   <%- include("./partials/header") %>
-  <p>some home page text!</p>
 
-  <% if (currentUser) { %>
-  <% if (!currentUser.ismember) { %>
+  <% if (currentUser && !currentUser.is_member) { %>
   <p>Become a member to leave a message!</p>
   <p>Some riddle for members to guess the password!</p>
 
@@ -16,14 +14,20 @@
     <input type="password" id="secret" name="secret" required>
     <button type="submit">JOIN</button>
   </form>
+
+  <% } else if (currentUser && currentUser.is_member) { %>
+  <p>Welcome <%= currentUser.username %> — you are now a member and can leave messages!!</p>
+
+  <p>(display existing messages here)</p>
+  <a href="/posts/new">NEW MESSAGE</a>
+  <a href="/log-out">LOG OUT</a>
+
   <% } else { %>
-  <p>Welcome <%= currentUser.username %> you are now a member and can leave messages!!</p>
-  <a href="/new-message">NEW MESSAGE</a>
+  <p>some visitor info</p>
   <% } %>
-  <% } %>
-  <% if (locals.errors) { %>
+  <% if (locals.errors && locals.errors.length > 0) { %>
   <ul>
-    <% for (let error of locals.errors) { %>
+    <% for (let error of errors) { %>
     <li><%= error.msg %></li>
     <% } %>
   </ul>

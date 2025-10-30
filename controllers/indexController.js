@@ -80,7 +80,6 @@ exports.submitSignupForm = [
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      //console.log("Validation failed:", errors.array());
       return res.render("sign_up_form", {
         title: "Sign up",
         firstname,
@@ -155,7 +154,7 @@ exports.submitJoinForm = [
 
     try {
       await db.updateUserMembership(req.user.user_id, true);
-      req.user.isMember = true;
+      req.user.is_member = true;
       res.redirect("/");
     } catch (err) {
       next(err);

@@ -19,19 +19,19 @@ async function insertUser(
   last_name,
   username,
   password,
-  isMember,
-  isAdmin,
+  is_member,
+  is_admin,
 ) {
   await pool.query(
-    `INSERT INTO users (first_name, last_name, username, password, isMember, isAdmin)
+    `INSERT INTO users (first_name, last_name, username, password, is_member, is_admin)
     VALUES ($1, $2, $3, $4, $5, $6)`,
-    [first_name, last_name, username, password, isMember, isAdmin],
+    [first_name, last_name, username, password, is_member, is_admin],
   );
 }
 
-async function updateUserMembership(user_id, isMember) {
-  await pool.query(`UPDATE users SET isMember = $1 WHERE user_id = $2`, [
-    isMember,
+async function updateUserMembership(user_id, is_member) {
+  await pool.query(`UPDATE users SET is_member = $1 WHERE user_id = $2`, [
+    is_member,
     user_id,
   ]);
 }
