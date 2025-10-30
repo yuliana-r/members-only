@@ -26,6 +26,10 @@ exports.index = async (req, res) => {
 exports.showSignupForm = async (req, res) => {
   res.render("sign_up_form", {
     title: "sign up",
+    errors: [],
+    firstname: "",
+    lastname: "",
+    username: "",
   });
 };
 
@@ -84,7 +88,7 @@ exports.submitSignupForm = [
 
     if (!errors.isEmpty()) {
       return res.render("sign_up_form", {
-        title: "Sign up",
+        title: "sign up",
         firstname,
         lastname,
         username,
@@ -113,6 +117,7 @@ exports.submitSignupForm = [
 exports.showLogInForm = async (req, res) => {
   res.render("log_in_form", {
     title: "log in",
+    errors: req.flash("error"),
   });
 };
 

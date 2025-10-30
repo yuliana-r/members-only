@@ -13,17 +13,17 @@
       <label for="firstname">First name *</label>
       <li>must be between 2 and 30 characters long</li>
       <li>can only contain letters</li>
-      <input type="text" name="firstname" id="firstname" placeholder="Secret" value="<%= locals.errors && firstname %>" required>
+      <input type="text" name="firstname" id="firstname" placeholder="Secret" value="<%= firstname %>" required>
 
       <label for="lastname">Last name *</label>
       <li>must be between 2 and 30 characters long</li>
       <li>can only contain letters</li>
-      <input type="text" name="lastname" id="lastname" placeholder="Squirrel" value="<%= locals.errors && lastname %>" required>
+      <input type="text" name="lastname" id="lastname" placeholder="Squirrel" value="<%= lastname %>" required>
 
       <label for="username">Username *</label>
       <li>must be between 8 and 20 characters long</li>
       <li>can only contain letters and numbers</li>
-      <input type="text" id="username" name="username" placeholder="kittycat007" value="<%= locals.errors && username %>" required>
+      <input type="text" id="username" name="username" placeholder="kittycat007" value="<%= username %>" required>
 
       <label for="password">Password *</label>
       <li>must be at least 8 characters long</li>
@@ -36,7 +36,7 @@
       <button type="submit">SUBMIT</button>
     </form>
   </div>
-  <% if (locals.errors && locals.errors.length > 0) { %>
+  <% if (errors && errors.length > 0) { %>
   <ul>
     <% for (let error of errors) { %>
     <li><%= error.msg %></li>

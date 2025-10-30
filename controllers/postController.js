@@ -24,7 +24,7 @@ exports.submitNewPostForm = [
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      return res.render("new_message_form", {
+      return res.render("new_post_form", {
         title: "new post",
         postTitle: title,
         message: message,
