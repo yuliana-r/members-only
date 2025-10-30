@@ -18,7 +18,7 @@
   <% } else if (currentUser && currentUser.is_member) { %>
   <p>Welcome <%= currentUser.username %> — you are now a member and can leave messages!!</p>
 
-  <p>(display existing messages here)</p>
+  <%- include("post_list") %>
   <a href="/posts/new">NEW MESSAGE</a>
   <a href="/log-out">LOG OUT</a>
 

@@ -8,7 +8,12 @@ async function insertPost(title, message, user_id) {
   );
 }
 
-async function getAllPosts() {}
+async function getAllPosts() {
+  const { rows } = await pool.query(
+    "SELECT * FROM posts ORDER BY timestamp DESC",
+  );
+  return rows;
+}
 
 async function getPostById() {}
 
@@ -16,4 +21,5 @@ async function deletePost() {}
 
 module.exports = {
   insertPost,
+  getAllPosts,
 };

@@ -1,5 +1,6 @@
 const { body, validationResult } = require("express-validator");
 const db = require("../db/queries/user_queries");
+const post_db = require("../db/queries/post_queries");
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 
@@ -10,9 +11,11 @@ function handleServerError(res, error, message = "Internal Server Error") {
 
 // GET /
 exports.index = async (req, res) => {
+  const posts = await post_db.getAllPosts();
   try {
     res.render("index", {
       title: "home",
+      post_list: posts,
     });
   } catch (error) {
     handleServerError(res, error);
