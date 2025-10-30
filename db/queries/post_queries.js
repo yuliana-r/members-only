@@ -10,7 +10,10 @@ async function insertPost(title, message, user_id) {
 
 async function getAllPosts() {
   const { rows } = await pool.query(
-    "SELECT * FROM posts ORDER BY timestamp DESC",
+    `SELECT posts.*, users.username
+    FROM posts
+    JOIN users ON posts.user_id = users.user_id
+    ORDER BY posts.timestamp DESC`,
   );
   return rows;
 }
