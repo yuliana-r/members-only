@@ -17,7 +17,8 @@
     <button type="submit">JOIN</button>
   </form>
   <% } else { %>
-  <p>Welcome <%= currentUser.username %> you are now a member!!</p>
+  <p>Welcome <%= currentUser.username %> you are now a member and can leave messages!!</p>
+  <a href="/new-message">NEW MESSAGE</a>
   <% } %>
   <% } %>
   <% if (locals.errors) { %>

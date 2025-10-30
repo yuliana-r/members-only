@@ -49,7 +49,7 @@ exports.submitSignupForm = [
     .isAlphanumeric()
     .withMessage("Username can only contain letters and numbers")
     .custom(async (value) => {
-      const userExists = await db.getUsername(value);
+      const userExists = await db.getUserByUsername(value);
       if (userExists) {
         throw new Error("Username is already taken");
       }

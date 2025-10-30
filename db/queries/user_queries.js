@@ -1,6 +1,6 @@
 const pool = require("../pool");
 
-async function getUsername(username) {
+async function getUserByUsername(username) {
   const { rows } = await pool.query("SELECT * FROM users WHERE username = $1", [
     username,
   ]);
@@ -37,7 +37,7 @@ async function updateUserMembership(user_id, isMember) {
 }
 
 module.exports = {
-  getUsername,
+  getUserByUsername,
   insertUser,
   getUserById,
   updateUserMembership,
