@@ -13,10 +13,12 @@ function handleServerError(res, error, message = "Internal Server Error") {
 // GET /
 exports.index = async (req, res) => {
   const posts = await post_db.getAllPosts();
+  const postCount = await post_db.getPostCount();
   try {
     res.render("index", {
       title: "home",
       post_list: posts,
+      post_count: Number(postCount),
       format: format,
     });
   } catch (error) {

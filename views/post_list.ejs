@@ -1,7 +1,8 @@
 <% if (post_list.length > 0) { %>
+<p>There <%= post_count === 1 ? 'is' : 'are' %> currently <%= post_count %> <%= post_count === 1 ? 'message' : 'messages' %>.</p>
 <% post_list.forEach(function(post) { %>
 <p><%= post.title %></p>
-<p><%= post.message %></p>
+<p><%= post.text %></p>
 <p><%= post.username %></p>
 <p><%= format(post.timestamp, "EEE, dd MMM yyyy, HH:mm") %></p>
 <% }); %>

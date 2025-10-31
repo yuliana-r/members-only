@@ -18,6 +18,10 @@ async function getAllPosts() {
   return rows;
 }
 
+async function getPostCount() {
+  const { rows } = await pool.query("SELECT COUNT(*) FROM posts");
+  return rows[0].count;
+}
 async function getPostById() {}
 
 async function deletePost() {}
@@ -25,4 +29,5 @@ async function deletePost() {}
 module.exports = {
   insertPost,
   getAllPosts,
+  getPostCount,
 };
