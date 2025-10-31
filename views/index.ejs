@@ -18,7 +18,7 @@
     <% } else if (currentUser && currentUser.is_member) { %>
     <p>Welcome <%= currentUser.username %> — you are now a member and can leave messages!!</p>
     <% } else { %>
-    <p>info for visitors!</p>
+    <%- include("features") %>
     <% } %>
 
     <%- include("post_list") %>

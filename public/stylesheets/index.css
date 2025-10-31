@@ -15,10 +15,11 @@
 
 :root {
   --primary-dark: #262626;
-  --primary-light: #f7f8fa;
+  --primary-light: #fafbfc;
   --primary-grey: #8b93a2;
   --secondary-grey: #58606b;
   --primary-purple: rebeccapurple;
+  --secondary-purple: #7547a3;
 }
 
 html {
@@ -73,7 +74,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  border-left: var(--primary-green) 2px solid;
+  border-left: var(--primary-purple) 2px solid;
   padding-left: 0.5em;
 }
 
@@ -123,4 +124,150 @@ main {
   align-items: center;
   justify-content: center;
   gap: 1em;
+}
+
+h1,
+h2 {
+  font-family: "Grandiflora One", cursive, serif;
+  font-weight: bold;
+  font-size: 1.5em;
+  letter-spacing: 3px;
+  color: var(--primary-dark);
+}
+
+h1 {
+  border-left: var(--primary-purple) 2px solid;
+  width: 100%;
+}
+
+.key-feature {
+  color: var(--secondary-purple);
+  font-family: "Grandiflora One", cursive, serif;
+  font-weight: bold;
+  font-size: 1.3em;
+  letter-spacing: 3px;
+}
+
+.features-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  padding: 1em 0;
+  user-select: none;
+  gap: 1em;
+  width: 100%;
+  margin-bottom: 0.25em;
+  border-bottom: 2px dashed var(--primary-grey);
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  min-height: 200px;
+  height: fit-content;
+  gap: 0.5em;
+  padding: 0.5em;
+  color: var(--primary-dark);
+}
+
+.feature-desc {
+  line-height: 23px;
+  font-size: 1.05em;
+}
+
+.feature-icon {
+  height: 45px;
+  border-left: var(--primary-purple) 2px solid;
+  object-fit: contain;
+}
+
+.keyword {
+  color: var(--secondary-purple);
+  font-style: italic;
+}
+
+.info {
+  font-family: "Grandiflora One", cursive, serif;
+  color: var(--primary-dark);
+  font-weight: bold;
+  font-size: 1.5em;
+  letter-spacing: 2px;
+}
+
+.info-small {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--secondary-grey);
+  margin: 1em 0;
+  line-height: 175%;
+  font-style: italic;
+}
+
+/* Footer */
+
+footer {
+  background-color: var(--primary-light);
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em;
+  font-family: "Grandiflora One", cursive, serif;
+  font-size: 20px;
+  font-weight: bold;
+  gap: 0.4em;
+  letter-spacing: 2px;
+  color: var(--secondary-grey);
+  letter-spacing: 2px;
+}
+
+.fa-github {
+  font-size: 22px;
+  color: var(--secondary-purple);
+  transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+  transform: rotate(360deg) scale(1.2);
+}
+
+/* Media queries */
+
+@media (max-width: 650px) {
+  nav > a {
+    font-size: 1.25em;
+  }
+
+  header {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  nav > a {
+    font-size: 0.85em;
+  }
+
+  .message-header {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .logo-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .logo-text {
+    justify-content: center;
+    align-items: center;
+    border: none;
+  }
 }
