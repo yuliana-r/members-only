@@ -4,32 +4,35 @@
 
 <body>
   <%- include("./partials/header") %>
+  <main>
+    <% if (currentUser && !currentUser.is_member) { %>
+    <p>Become a member to leave a message!</p>
+    <p>Some riddle for members to guess the password!</p>
 
-  <% if (currentUser && !currentUser.is_member) { %>
-  <p>Become a member to leave a message!</p>
-  <p>Some riddle for members to guess the password!</p>
+    <form action="/join" method="POST">
+      <label for="secret">Password</label>
+      <input type="password" id="secret" name="secret" required>
+      <button type="submit">JOIN</button>
+    </form>
 
-  <form action="/join" method="POST">
-    <label for="secret">Password</label>
-    <input type="password" id="secret" name="secret" required>
-    <button type="submit">JOIN</button>
-  </form>
-
-  <% } else if (currentUser && currentUser.is_member) { %>
-  <p>Welcome <%= currentUser.username %> — you are now a member and can leave messages!!</p>
-  <% } else { %>
-  <p>info for visitors!</p>
-  <% } %>
-
-  <%- include("post_list") %>
-
-  <% if (errors && errors.length > 0) { %>
-  <ul>
-    <% for (let error of errors) { %>
-    <li><%= error %></li>
+    <% } else if (currentUser && currentUser.is_member) { %>
+    <p>Welcome <%= currentUser.username %> — you are now a member and can leave messages!!</p>
+    <% } else { %>
+    <p>info for visitors!</p>
     <% } %>
-  </ul>
-  <% } %>
+
+    <%- include("post_list") %>
+
+    <% if (errors && errors.length > 0) { %>
+    <ul>
+      <% for (let error of errors) { %>
+      <li><%= error %></li>
+      <% } %>
+    </ul>
+    <% } %>
+  </main>
+
+
   <%- include("./partials/footer") %>
 
 </body>

@@ -1,9 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Grandiflora+One&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+*::selection {
+  background: var(--secondary-green);
+  color: var(--primary-light);
+}
+
+:root {
+  --primary-dark: #262626;
+  --primary-light: #f7f8fa;
+  --primary-grey: #8b93a2;
+  --secondary-grey: #58606b;
+  --primary-purple: rebeccapurple;
+}
+
+html {
+  height: 100%;
+}
+
 body {
-  color: rebeccapurple;
-  background-color: #f1f1f1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  background-color: var(--primary-light);
+  min-width: 250px;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 2em;
+  gap: 2em;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
+  flex-wrap: wrap;
+  user-select: none;
 }
 
 .logo-img {
-  height: 4rem;
+  height: 5rem;
   width: auto;
+}
+
+.logo-img:hover {
+  scale: 1.05;
+  filter: saturate(1.25);
+}
+
+.logo-text {
+  font-family: "Grandiflora One", cursive, serif;
+  font-size: 2em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-left: var(--primary-green) 2px solid;
+  padding-left: 0.5em;
+}
+
+.incognito {
+  color: var(--primary-grey);
+}
+
+.accent {
+  color: var(--primary-purple);
+}
+
+/* Navbar */
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75em;
+}
+
+nav > a,
+nav > p {
+  text-decoration: none;
+  font-family: "Grandiflora One", cursive, serif;
+  font-weight: bold;
+  font-size: 1em;
+  letter-spacing: 3px;
+  color: var(--primary-dark);
+}
+
+nav > p {
+  user-select: none;
+}
+
+nav > a:hover {
+  text-decoration: underline var(--primary-purple) wavy;
+}
+
+/* Main */
+
+main {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1em 3em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
 }

@@ -1,23 +1,27 @@
 <header>
-  <a href="/">
-    <img src="/images/logo.png" class="logo-img" alt="incognito and two message bubbles icon">
-  </a>
+  <div class="logo-container">
+    <a href="/">
+      <img src="/images/logo.png" class="logo-img" alt="incognito and two message bubbles icon">
+    </a>
+    <div class="logo-text">
+      <p class="incognito">incatnito</p>
+      <p class="accent">members only</p>
+    </div>
+  </div>
 
-  <p>incatnito</p>
-  <p>members only</p>
 
   <nav>
     <% if (currentUser) { %>
     <% if (currentUser.is_member) { %>
     <a href="/posts/new">NEW MESSAGE</a>
-    <p>|</p>
+    <p class="accent">|</p>
     <% } %>
     <a href="/users/<%= currentUser.user_id %>/delete">DELETE ACCOUNT</a>
-    <p>|</p>
+    <p class="accent">|</p>
     <a href="/log-out">LOG OUT</a>
     <% } else { %>
     <a href="/log-in">LOG IN</a>
-    <p>|</p>
+    <p class="accent">|</p>
     <a href="sign-up">SIGN UP</a>
     <% } %>
   </nav>
