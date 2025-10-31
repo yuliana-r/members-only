@@ -5,11 +5,9 @@
 <body>
   <%- include("./partials/header") %>
 
-
   <% if (currentUser && !currentUser.is_member) { %>
   <p>Become a member to leave a message!</p>
   <p>Some riddle for members to guess the password!</p>
-
 
   <form action="/join" method="POST">
     <label for="secret">Password</label>
@@ -19,20 +17,16 @@
 
   <% } else if (currentUser && currentUser.is_member) { %>
   <p>Welcome <%= currentUser.username %> — you are now a member and can leave messages!!</p>
-  <a href="/posts/new">NEW MESSAGE</a>
-  <a href="/users/<%= currentUser.user_id %>/delete">DELETE ACCOUNT</a>
-  <a href="/log-out">LOG OUT</a>
-
   <% } else { %>
   <p>info for visitors!</p>
-
   <% } %>
+
   <%- include("post_list") %>
 
-  <% if (locals.errors && locals.errors.length > 0) { %>
+  <% if (errors && errors.length > 0) { %>
   <ul>
     <% for (let error of errors) { %>
-    <li><%= error.msg %></li>
+    <li><%= error %></li>
     <% } %>
   </ul>
   <% } %>

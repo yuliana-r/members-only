@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const { format } = require("date-fns");
 
+// Redirect logged in users to home page if accessing Log in/Sign up page
 exports.redirectIfAuthenticated = (req, res, next) => {
   if (req.isAuthenticated && req.isAuthenticated()) {
     return res.redirect("/");
@@ -22,6 +23,7 @@ exports.index = async (req, res, next) => {
       post_list: posts,
       post_count: Number(postCount),
       format: format,
+      errors: [],
     });
   } catch (error) {
     next(error);
