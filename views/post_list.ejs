@@ -3,8 +3,12 @@
 <% post_list.forEach(function(post) { %>
 <p><%= post.title %></p>
 <p><%= post.text %></p>
-<p><%= post.username %></p>
+<p><%= post.username %> <%= post.is_admin ? "admin" : "" %></p>
 <p><%= format(post.timestamp, "EEE, dd MMM yyyy, HH:mm") %></p>
+<%# if user is admin only %>
+<% if (currentUser.is_admin) { %>
+<form action="/posts/<%= post.message_id %>/delete" method="POST"><button>Delete message</button></form>
+<% } %>
 <% }); %>
 <% } else { %>
 <p>There are no messages to display yet.</p>

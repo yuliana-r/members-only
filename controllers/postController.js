@@ -38,8 +38,19 @@ exports.submitNewPostForm = [
     try {
       await db.insertPost(title, message, req.user.user_id);
       res.redirect("/");
-    } catch (err) {
-      next(err);
+    } catch (error) {
+      next(error);
     }
   },
 ];
+
+//POST /posts/:id/delete
+exports.deletePost = async (req, res) => {
+  const { postId } = req.params;
+  try {
+    await db.deletePost(postId);
+    res.redirect("/");
+  } catch (error) {
+    next(error);
+  }
+};

@@ -36,9 +36,17 @@ async function updateUserMembership(user_id, is_member) {
   ]);
 }
 
+async function grantAdminPrivilege(user_id, is_admin) {
+  await pool.query(`UPDATE users SET is_admin = $1 WHERE user_id = $2`, [
+    is_admin,
+    user_id,
+  ]);
+}
+
 module.exports = {
   getUserByUsername,
   insertUser,
   getUserById,
   updateUserMembership,
+  grantAdminPrivilege,
 };

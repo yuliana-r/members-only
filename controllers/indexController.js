@@ -147,7 +147,10 @@ exports.submitJoinForm = [
   body("secret")
     .trim()
     .custom((password, { req }) => {
-      if (password !== process.env.MEMBER_PASSWORD) {
+      const isMember = password === process.env.MEMBER_PASSWORD;
+      const isAdmin = password === process.env.ADMIN_PASSWORD;
+
+      if (!isMember && !isAdmin) {
         throw new Error("Incorrect password!");
       }
       return true;
@@ -165,8 +168,21 @@ exports.submitJoinForm = [
     }
 
     try {
-      await db.updateUserMembership(req.user.user_id, true);
-      req.user.is_member = true;
+      const password = req.body.secret;
+      const isAdmin = password === process.env.ADMIN_PASSWORD;
+      //admins are members by default
+      const isMember = isAdmin || password === process.env.MEMBER_PASSWORD;
+
+      if (isMember) {
+        await db.updateUserMembership(req.user.user_id, true);
+        req.user.is_member = true;
+      }
+
+      if (isAdmin) {
+        await db.grantAdminPrivilege(req.user.user_id, true);
+        req.user.is_admin = true;
+      }
+
       res.redirect("/");
     } catch (err) {
       next(err);
