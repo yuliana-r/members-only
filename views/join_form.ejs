@@ -1,0 +1,31 @@
+<div class="form-container">
+  <h1>JOIN</h1>
+  <div class="info-small">
+    <p class="accent">
+      Become a member to reveal authors and compose messages.
+    </p>
+    Hint: "To enter our club, you must be discreet,<br />
+    Where whiskers twitch and shadows meet.<br />
+    The key to our world is simple, you see - <br />
+    It's just the <span class="keyword">club's own name</span>, the place to be.<br />
+    Say what we're called, no tricks, no plight - <br />
+    Speak the name and you're in… that's right!"
+  </div>
+
+  <form action="/join" method="POST">
+    <div class="form-inputs">
+      <div class="input-container">
+        <label for="secret">Password</label>
+        <input type="password" id="secret" name="secret" required>
+      </div>
+      <button type="submit" class="submit-button">JOIN</button>
+    </div>
+  </form>
+  <% if (errors && errors.length > 0) { %>
+  <ul>
+    <% for (let error of errors) { %>
+    <li><%= error.msg %></li>
+    <% } %>
+  </ul>
+  <% } %>
+</div>

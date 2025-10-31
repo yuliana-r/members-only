@@ -6,43 +6,52 @@
 <body>
   <%- include("./partials/header") %>
   <main>
-    <div>
+    <div class="form-container">
       <h1>SIGN UP</h1>
-      <p>Fields marked with * are required</p>
+      <p>Fields marked with <span class="accent">*</span> are required</p>
       <form action="/sign-up" method="POST">
-        <label for="firstname">First name *</label>
-        <li>must be between 2 and 30 characters long</li>
-        <li>can only contain letters</li>
-        <input type="text" name="firstname" id="firstname" placeholder="Secret" value="<%= firstname %>" required>
-
-        <label for="lastname">Last name *</label>
-        <li>must be between 2 and 30 characters long</li>
-        <li>can only contain letters</li>
-        <input type="text" name="lastname" id="lastname" placeholder="Squirrel" value="<%= lastname %>" required>
-
-        <label for="username">Username *</label>
-        <li>must be between 8 and 20 characters long</li>
-        <li>can only contain letters and numbers</li>
-        <input type="text" id="username" name="username" placeholder="kittycat007" value="<%= username %>" required>
-
-        <label for="password">Password *</label>
-        <li>must be at least 8 characters long</li>
-        <li>must contain at least 1 number</li>
-        <li>must contain at least 1 uppercase letter</li>
-        <input id="password" name="password" type="password" minlength="8" maxlength="100" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must be at least 8 characters long, contain at least one  number and one uppercase letter" autocomplete="off" required />
-
-        <label for="confirmPassword">Confirm password *</label>
-        <input id="confirmPassword" name="confirmPassword" type="password" minlength="8" maxlength="100" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must be at least 8 characters long, contain at least one  number and one uppercase letter" autocomplete="off" required />
-        <button type="submit">SUBMIT</button>
+        <div class="form-inputs">
+          <div class="input-container">
+            <label for="firstname">First name *</label>
+            <li>must be between 2 and 30 characters long</li>
+            <li>can only contain letters</li>
+            <input type="text" name="firstname" id="firstname" placeholder="Secret" value="<%= firstname %>" required>
+          </div>
+          <div class="input-container">
+            <label for="lastname">Last name *</label>
+            <li>must be between 2 and 30 characters long</li>
+            <li>can only contain letters</li>
+            <input type="text" name="lastname" id="lastname" placeholder="Squirrel" value="<%= lastname %>" required>
+          </div>
+          <div class="input-container">
+            <label for="username">Username *</label>
+            <li>must be between 8 and 20 characters long</li>
+            <li>can only contain letters and numbers</li>
+            <input type="text" id="username" name="username" placeholder="kittycat007" value="<%= username %>" required>
+          </div>
+          <div class="input-container">
+            <label for="password">Password *</label>
+            <li>must be at least 8 characters long</li>
+            <li>must contain at least 1 number</li>
+            <li>must contain at least 1 uppercase letter</li>
+            <input id="password" name="password" type="password" minlength="8" maxlength="100" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must be at least 8 characters long, contain at least one  number and one uppercase letter" autocomplete="off" required />
+          </div>
+          <div class="input-container"><label for="confirmPassword">Confirm password *</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" minlength="8" maxlength="100" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must be at least 8 characters long, contain at least one  number and one uppercase letter" autocomplete="off" required />
+          </div>
+        </div>
+        <button type="submit" class="submit-button">SUBMIT</button>
       </form>
+
     </div>
     <% if (errors && errors.length > 0) { %>
     <ul>
       <% for (let error of errors) { %>
-      <li><%= error %></li>
+      <li><%= error.msg %></li>
       <% } %>
     </ul>
     <% } %>
+
   </main>
 
   <%- include("./partials/footer") %>

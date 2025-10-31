@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Grandiflora+One&display=swap");
+@import url("form.css");
 
 *,
 *::after,
@@ -9,7 +10,7 @@
 }
 
 *::selection {
-  background: var(--secondary-green);
+  background: var(--secondary-purple);
   color: var(--primary-light);
 }
 

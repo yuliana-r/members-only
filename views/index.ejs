@@ -6,14 +6,7 @@
   <%- include("./partials/header") %>
   <main>
     <% if (currentUser && !currentUser.is_member) { %>
-    <p>Become a member to leave a message!</p>
-    <p>Some riddle for members to guess the password!</p>
-
-    <form action="/join" method="POST">
-      <label for="secret">Password</label>
-      <input type="password" id="secret" name="secret" required>
-      <button type="submit">JOIN</button>
-    </form>
+    <%- include("join_form") %>
 
     <% } else if (currentUser && currentUser.is_member) { %>
     <p>Welcome <%= currentUser.username %> — you are now a member and can leave messages!!</p>
@@ -21,15 +14,11 @@
     <%- include("features") %>
     <% } %>
 
+    <!-- Don't display messages when Join form is displayed -->
+    <% if (!(currentUser && !currentUser.is_member)) { %>
     <%- include("post_list") %>
-
-    <% if (errors && errors.length > 0) { %>
-    <ul>
-      <% for (let error of errors) { %>
-      <li><%= error %></li>
-      <% } %>
-    </ul>
     <% } %>
+
   </main>
 
 

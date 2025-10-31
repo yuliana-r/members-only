@@ -6,23 +6,30 @@
 <body>
   <%- include("./partials/header") %>
   <main>
-    <h1>LOG IN</h1>
-    <form action="/log-in" method="POST">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" placeholder="codeCracker007" required>
-
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required>
-
-      <button type="submit">LOG IN</button>
-    </form>
-    <% if (errors && errors.length > 0) { %>
-    <ul>
-      <% for (let error of errors) { %>
-      <li><%= error %></li>
+    <div class="form-container">
+      <h1>LOG IN</h1>
+      <form action="/log-in" method="POST">
+        <div class="form-inputs">
+          <div class="input-container">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="kittyCat007" required>
+          </div>
+          <div class="input-container">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+        </div>
+        <button type="submit" class="submit-button">LOG IN</button>
+      </form>
+      <% if (errors && errors.length > 0) { %>
+      <ul>
+        <% for (let error of errors) { %>
+        <li><%= error %></li>
+        <% } %>
+      </ul>
       <% } %>
-    </ul>
-    <% } %>
+    </div>
+
   </main>
 
   <%- include("./partials/footer") %>
