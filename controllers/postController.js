@@ -45,7 +45,7 @@ exports.submitNewPostForm = [
 ];
 
 //POST /posts/:id/delete
-exports.deletePost = async (req, res) => {
+exports.deletePost = async (req, res, next) => {
   const { postId } = req.params;
   try {
     await db.deletePost(postId);

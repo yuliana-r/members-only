@@ -21,7 +21,7 @@
   <%- include("post_list") %>
 
   <a href="/posts/new">NEW MESSAGE</a>
-  <a href="">DELETE ACCOUNT</a>
+  <form action="/users/<%= currentUser.user_id %>/delete" method="POST"><button type="submit">DELETE ACCOUNT</button></form>
   <a href="/log-out">LOG OUT</a>
 
   <% } else { %>

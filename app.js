@@ -90,8 +90,10 @@ app.use((req, res, next) => {
 //assign routers to paths
 const indexRouter = require("./routes/index");
 const postRouter = require("./routes/post");
+const userRouter = require("./routes/user");
 app.use("/", indexRouter);
 app.use("/posts", postRouter);
+app.use("/users", userRouter);
 
 // 404 handler
 app.use((req, res, next) => {

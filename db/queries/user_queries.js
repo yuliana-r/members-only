@@ -43,10 +43,15 @@ async function grantAdminPrivilege(user_id, is_admin) {
   ]);
 }
 
+async function deleteUser(id) {
+  await pool.query("DELETE FROM users WHERE user_id = $1", [id]);
+}
+
 module.exports = {
   getUserByUsername,
   insertUser,
   getUserById,
   updateUserMembership,
   grantAdminPrivilege,
+  deleteUser,
 };
