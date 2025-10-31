@@ -3,7 +3,7 @@
 <p><%= post.title %></p>
 <p><%= post.message %></p>
 <p><%= post.username %></p>
-<p><%= post.timestamp %></p>
+<p><%= format(post.timestamp, "EEE, dd MMM yyyy, HH:mm") %></p>
 <% }); %>
 <% } else { %>
 <p>There are no messages to display yet.</p>

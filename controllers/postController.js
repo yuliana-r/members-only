@@ -5,6 +5,9 @@ const db = require("../db/queries/post_queries");
 exports.showNewPostForm = async (req, res) => {
   res.render("new_post_form", {
     title: "new post",
+    errors: [],
+    postTitle: "",
+    message: "",
   });
 };
 

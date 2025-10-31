@@ -3,6 +3,7 @@ const db = require("../db/queries/user_queries");
 const post_db = require("../db/queries/post_queries");
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
+const { format } = require("date-fns");
 
 function handleServerError(res, error, message = "Internal Server Error") {
   //console.error(message, error);
@@ -16,6 +17,7 @@ exports.index = async (req, res) => {
     res.render("index", {
       title: "home",
       post_list: posts,
+      format: format,
     });
   } catch (error) {
     handleServerError(res, error);
