@@ -9,7 +9,10 @@
     <%- include("join_form") %>
 
     <% } else if (currentUser && currentUser.is_member) { %>
-    <p>Welcome <%= currentUser.username %> — you are now a member and can leave messages!!</p>
+    <p class="info">
+      Welcome back,
+      <span class="accent"><%= currentUser.first_name %></span>
+    </p>
     <% } else { %>
     <%- include("features") %>
     <% } %>

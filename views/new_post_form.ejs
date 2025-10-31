@@ -22,14 +22,15 @@
         </div>
         <button type="submit" class="submit-button">SUBMIT</button>
       </form>
-      <% if (errors && errors.length > 0) { %>
-      <ul>
-        <% for (let error of errors) { %>
-        <li><%= error.msg %></li>
-        <% } %>
-      </ul>
-      <% } %>
+
     </div>
+    <% if (errors && errors.length > 0) { %>
+    <ul>
+      <% for (let error of errors) { %>
+      <li><%= error.msg %></li>
+      <% } %>
+    </ul>
+    <% } %>
     <% } else { %>
     <p>Nothing to see here!</p>
     <% } %>

@@ -1,18 +1,36 @@
-<% if (post_list.length > 0) { %>
-<p>There <%= post_count === 1 ? 'is' : 'are' %> currently <%= post_count %> <%= post_count === 1 ? 'message' : 'messages' %>.</p>
-<% post_list.forEach(function(post) { %>
-<p><%= post.title %></p>
-<p><%= post.text %></p>
-<% if (currentUser && currentUser.is_member) {%>
-<p><%= post.username %> <%= post.is_admin ? "admin" : "" %></p>
-<p><%= format(post.timestamp, "EEE, dd MMM yyyy, HH:mm") %></p>
-<% } %>
+<div class="messages-container">
+  <% if (post_list.length > 0) { %>
 
-<%# if user is admin only %>
-<% if (currentUser && currentUser.is_admin) { %>
-<form action="/posts/<%= post.message_id %>/delete" method="POST"><button>Delete message</button></form>
-<% } %>
-<% }); %>
-<% } else { %>
-<p>There are no messages to display yet.</p>
-<% } %>
+  <p class="info">There <%= post_count === 1 ? 'is' : 'are' %> currently <%= post_count %> <%= post_count === 1 ? 'message' : 'messages' %>.</p>
+
+  <% if (!currentUser) { %>
+  <p class="info">
+    Become a member to reveal authors and compose messages.
+  </p>
+  <% } %>
+
+  <% post_list.forEach(function(post) { %>
+  <div class="message-item">
+    <div class="message-header">
+      <% if (currentUser && currentUser.is_member) {%>
+      <p><%= post.username %> <sup class="admin"><%= post.is_admin ? "admin" : "" %></sup></p>
+      <p><%= format(post.timestamp, "EEE, dd MMM yyyy, HH:mm") %></p>
+      <% } %>
+    </div>
+    <div class="message-body">
+      <p class="message-title"><%= post.title %></p>
+      <p class="message-content"><%= post.text %></p>
+    </div>
+
+    <%# if user is admin only %>
+    <% if (currentUser && currentUser.is_admin) { %>
+    <a href="/posts/<%= post.message_id %>/delete"><i class="fa-solid fa-trash-can"></i></a>
+    <% } %>
+  </div>
+
+  <% }); %>
+
+  <% } else { %>
+  <p class="info">There are no messages to display yet.</p>
+  <% } %>
+</div>

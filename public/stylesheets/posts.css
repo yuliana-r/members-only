@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Grandiflora+One&display=swap");
+
+:root {
+  --primary-dark: #262626;
+  --primary-light: #fafbfc;
+  --primary-grey: #8b93a2;
+  --secondary-grey: #58606b;
+  --primary-purple: rebeccapurple;
+  --secondary-purple: #7547a3;
+}
+
+/* Posts */
+
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+}
+
+.message-item {
+  display: flex;
+  flex-direction: column;
+  border: 2px dashed var(--primary-grey);
+  color: var(--primary-dark);
+  width: 60%;
+  min-width: 250px;
+  padding: 1.75em;
+  gap: 0.75em;
+  border-radius: 35px 35px 0 35px;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  color: var(--secondary-purple);
+  font-family: "Grandiflora One", cursive, serif;
+  font-weight: bold;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+}
+
+.message-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: justify;
+  word-break: break-word;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  gap: 0.75em;
+  letter-spacing: 1px;
+}
+
+.message-title {
+  font-style: italic;
+  font-weight: 900;
+  color: var(--secondary-grey);
+  letter-spacing: 1px;
+}
+
+.admin {
+  color: var(--secondary-grey);
+  font-size: 0.9em;
+}
+
+.message-item > a {
+  text-align: right;
+  padding: 5px;
+  font-size: 17px;
+  color: var(--primary-grey);
+}
+
+.fa-trash-can:hover {
+  color: var(--primary-purple);
+  cursor: grab;
+}

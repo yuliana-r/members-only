@@ -12,31 +12,31 @@
       <form action="/sign-up" method="POST">
         <div class="form-inputs">
           <div class="input-container">
-            <label for="firstname">First name *</label>
+            <label for="firstname">First name<span class="accent">*</span></label>
             <li>must be between 2 and 30 characters long</li>
             <li>can only contain letters</li>
             <input type="text" name="firstname" id="firstname" placeholder="Secret" value="<%= firstname %>" required>
           </div>
           <div class="input-container">
-            <label for="lastname">Last name *</label>
+            <label for="lastname">Last name<span class="accent">*</span></label>
             <li>must be between 2 and 30 characters long</li>
             <li>can only contain letters</li>
-            <input type="text" name="lastname" id="lastname" placeholder="Squirrel" value="<%= lastname %>" required>
+            <input type="text" name="lastname" id="lastname" placeholder="Kitty" value="<%= lastname %>" required>
           </div>
           <div class="input-container">
-            <label for="username">Username *</label>
+            <label for="username">Username<span class="accent">*</span></label>
             <li>must be between 8 and 20 characters long</li>
             <li>can only contain letters and numbers</li>
             <input type="text" id="username" name="username" placeholder="kittycat007" value="<%= username %>" required>
           </div>
           <div class="input-container">
-            <label for="password">Password *</label>
+            <label for="password">Password<span class="accent">*</span></label>
             <li>must be at least 8 characters long</li>
             <li>must contain at least 1 number</li>
             <li>must contain at least 1 uppercase letter</li>
             <input id="password" name="password" type="password" minlength="8" maxlength="100" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must be at least 8 characters long, contain at least one  number and one uppercase letter" autocomplete="off" required />
           </div>
-          <div class="input-container"><label for="confirmPassword">Confirm password *</label>
+          <div class="input-container"><label for="confirmPassword">Confirm password<span class="accent">*</span></label>
             <input id="confirmPassword" name="confirmPassword" type="password" minlength="8" maxlength="100" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must be at least 8 characters long, contain at least one  number and one uppercase letter" autocomplete="off" required />
           </div>
         </div>

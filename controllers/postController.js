@@ -44,6 +44,24 @@ exports.submitNewPostForm = [
   },
 ];
 
+//GET /posts/:id/delete
+exports.getDeletePostConfirmation = async (req, res, next) => {
+  try {
+    const { postId } = req.params;
+    const post = await db.getPostById(postId);
+
+    if (!post) {
+      const err = new Error("Post not found!");
+      err.status = 404;
+      return next(err);
+    }
+
+    res.render("confirm_delete_post", { title: "confirm delete post", post });
+  } catch (error) {
+    next(error);
+  }
+};
+
 //POST /posts/:id/delete
 exports.deletePost = async (req, res, next) => {
   const { postId } = req.params;

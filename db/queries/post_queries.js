@@ -18,6 +18,14 @@ async function getAllPosts() {
   return rows;
 }
 
+async function getPostById(id) {
+  const { rows } = await pool.query(
+    "SELECT * FROM posts WHERE message_id = $1",
+    [id],
+  );
+  return rows[0];
+}
+
 async function getPostCount() {
   const { rows } = await pool.query("SELECT COUNT(*) FROM posts");
   return rows[0].count;
@@ -30,6 +38,7 @@ async function deletePost(id) {
 module.exports = {
   insertPost,
   getAllPosts,
+  getPostById,
   getPostCount,
   deletePost,
 };
