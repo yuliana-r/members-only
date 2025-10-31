@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS posts (
   text VARCHAR (100) NOT NULL,
   timestamp TIMESTAMP NOT NULL DEFAULT NOW(),
   user_id INTEGER,
-  FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE
+  FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 `;
 

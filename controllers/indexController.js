@@ -5,13 +5,15 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const { format } = require("date-fns");
 
-function handleServerError(res, error, message = "Internal Server Error") {
-  //console.error(message, error);
-  res.status(500).send(message);
-}
+exports.redirectIfAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated && req.isAuthenticated()) {
+    return res.redirect("/");
+  }
+  next();
+};
 
 // GET /
-exports.index = async (req, res) => {
+exports.index = async (req, res, next) => {
   const posts = await post_db.getAllPosts();
   const postCount = await post_db.getPostCount();
   try {
@@ -22,7 +24,7 @@ exports.index = async (req, res) => {
       format: format,
     });
   } catch (error) {
-    handleServerError(res, error);
+    next(error);
   }
 };
 
